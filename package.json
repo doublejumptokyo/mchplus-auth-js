@@ -1,0 +1,33 @@
+{
+  "name": "mchplus-auth-js",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint -p .",
+    "lintfix": "tslint --fix -p ."
+  },
+  "keywords": [],
+  "author": "doublejump.tokyo",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:doublejumptokyo/mchplus-auth-js.git"
+  },
+  "dependencies": {
+    "@types/humps": "^1.1.2",
+    "axios": "^0.19.0",
+    "base64url": "^3.0.1",
+    "btoa": "^1.2.1",
+    "humps": "^2.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.5.3"
+  }
+}

@@ -3,34 +3,20 @@ import axios from 'axios'
 import env from './env'
 
 export class VerifyNumber {
-  private clientId: string
   private web3: any
-  private number: number
   private env: string
+  private lang: string
 
   defaultAccount: string
 
-  constructor(clientId, web3, number, env) {
-    this.clientId = clientId
+  constructor(web3, env, lang) {
     this.web3 = web3
-    this.number = number
     this.env = env
+    this.lang = lang
   }
 
   get baseUrl(): string {
-    return this.env === 'prod' ? env.prod : env.sand
-  }
-
-  get checkWeb3() {
-    return console.log(this.web3)
-  }
-
-  get checkNumber() {
-    return console.log(this.number)
-  }
-
-  get checkClientId() {
-    return console.log(this.clientId)
+    return env[this.env].verifyNumberUri
   }
 
   async getRegions() {
@@ -38,6 +24,31 @@ export class VerifyNumber {
     return await axios.get(`${this.baseUrl}${url}`)
   }
 
+  async getAddress() {
+    const accounts = await this.web3.eth.getAccounts()
+    return accounts.pop()
+  }
+
+  async sign(web3, confirmationPin, address) {
+    const signature = await web3.eth.personal.sign(`Confirmation Pin: ${confirmationPin}`, address)
+    return signature
+  }
+
+  async submitInput(phoneNumber, isCall) {
+    try {
+      const address = await this.getAddress()
+      const url = '/api/phone/register'
+      const type = isCall ? 'call' : ''
+      console.log('input :', phoneNumber, address, this.lang, type )
+      await axios.post(
+        `${this.baseUrl}${url}` , { phoneNumber, address, lang: this.lang, type }
+      )
+      return 'Confirmed'
+    } catch (e) {
+      console.error('Input from error: ', e)
+      return 'Error'
+    }
+  }
 }
 
 export default VerifyNumber

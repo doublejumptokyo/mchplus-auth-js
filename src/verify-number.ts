@@ -1,6 +1,6 @@
 import axios from 'axios'
 // import humps from 'humps'
-import env from './env.js'
+import env from './env'
 
 export class VerifyNumber {
   private clientId: string

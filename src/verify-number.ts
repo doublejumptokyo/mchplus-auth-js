@@ -1,21 +1,20 @@
 import axios from 'axios'
-import humps from 'humps'
+// import humps from 'humps'
 import env from './env.js'
 
-export interface Options {
-  dev: boolean
-}
-
-export class EthereumManager {
-  private web3: Web3
+export class VerifyNumber {
+  private clientId: string
+  private web3: any
+  private number: number
+  private env: string
 
   defaultAccount: string
 
-  constructor(env, web3, clientId, number) {
-    this.env = env
+  constructor(clientId, web3, number, env) {
     this.clientId = clientId
-    this.number = number
     this.web3 = web3
+    this.number = number
+    this.env = env
   }
 
   get baseUrl(): string {
@@ -23,18 +22,22 @@ export class EthereumManager {
   }
 
   get checkWeb3() {
-    return console.log(this.web)
+    return console.log(this.web3)
   }
 
   get checkNumber() {
     return console.log(this.number)
   }
 
+  get checkClientId() {
+    return console.log(this.clientId)
+  }
+
   async getRegions() {
     const url = '/api/master/regions'
-    return await axios.$get(`${baseUrl}${url}`)
+    return await axios.get(`${this.baseUrl}${url}`)
   }
 
 }
 
-export default EthereumManager
+export default VerifyNumber

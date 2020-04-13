@@ -9,6 +9,7 @@ export class MchplusAuth {
 
 
   constructor(clientId, web3, number, env = 'sand', ) {
+    this.clientId = clientId
     this.env = env
     this.web3 = web3
     this.verifyNumber = new VerifyNumber(clientId, web3, number, env)
@@ -21,10 +22,12 @@ export class MchplusAuth {
   }
 
   checkInput() {
-    console.log('env :', this.env)
-    console.log('clientId :', this.clientId)
-    console.log('web3 :', this.web3)
-    console.log('number :', this.number)
+    console.info('mchplus auth initialized')
+    console.info('-------------------------')
+    console.info('env :', this.env)
+    console.info('clientId :', this.clientId)
+    console.info('web3 :', this.web3)
+    console.info('number :', this.number)
   }
 
   async getNumberRegions() {

@@ -3,13 +3,15 @@ import axios from 'axios'
 import env from './env'
 
 export class VerifyNumber {
+  private clientId: string
   private web3: any
   private env: string
   private lang: string
 
   defaultAccount: string
 
-  constructor(web3, env, lang) {
+  constructor(clientId, web3, env, lang) {
+    this.clientId = clientId
     this.web3 = web3
     this.env = env
     this.lang = lang
@@ -36,12 +38,12 @@ export class VerifyNumber {
 
   async submitInput(phoneNumber, isCall) {
     try {
+      console.log(this.clientId)
       const address = await this.getAddress()
       const url = '/api/phone/register'
       const type = isCall ? 'call' : ''
-      console.log('input :', phoneNumber, address, this.lang, type )
       await axios.post(
-        `${this.baseUrl}${url}` , { phoneNumber, address, lang: this.lang, type }
+        `${this.baseUrl}${url}` , { clientId: this.clientId, phoneNumber, address, lang: this.lang, type }
       )
       return 'Confirmed'
     } catch (e) {

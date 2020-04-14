@@ -1,5 +1,5 @@
-import axios from 'axios'
 // import humps from 'humps'
+import axios from 'axios'
 import env from './env'
 
 export class VerifyNumber {
@@ -31,24 +31,38 @@ export class VerifyNumber {
     return accounts.pop()
   }
 
-  async sign(web3, confirmationPin, address) {
-    const signature = await web3.eth.personal.sign(`Confirmation Pin: ${confirmationPin}`, address)
+  async sign(confirmationPin) {
+    const address = await this.getAddress()=
+    const signature = await this.web3.eth.personal.sign(`Code:${confirmationPin}`, address)
     return signature
   }
 
   async submitInput(phoneNumber, isCall) {
     try {
-      console.log(this.clientId)
       const address = await this.getAddress()
       const url = '/api/phone/register'
       const type = isCall ? 'call' : ''
       await axios.post(
-        `${this.baseUrl}${url}` , { clientId: this.clientId, phoneNumber, address, lang: this.lang, type }
+        `${this.baseUrl}${url}` , { 'client_id': this.clientId, 'phone_number': phoneNumber, address, lang: this.lang, type }
       )
       return 'Confirmed'
     } catch (e) {
       console.error('Input from error: ', e)
       return 'Error'
+    }
+  }
+
+  async submitConfirm(confirmationPin) {
+    try {
+      const address = await this.getAddress()
+      const signature = await this.sign(confirmationPin)
+      const url = '/api/phone/confirm'
+      const network = 'mainnet'
+      await axios.post(`${this.baseUrl}${url}`, { address, sig: signature, network })
+      return "success!"
+    } catch (e) {
+      console.error('Confirm number error: ', e)
+      return e
     }
   }
 }

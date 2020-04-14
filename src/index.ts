@@ -18,10 +18,9 @@ export class MchplusAuth {
   }
 
   checkInput() {
-    console.info('-------------------------')
-    console.info('[mchplus auth] initialized')
-    console.info('-------------------------')
-    if (this.env !== ('sand' || 'prod')) {
+    console.info('%c[mchplus auth] initialized','background: #222; color: #bada55')
+    console.log(this.env)
+    if (!(this.env === 'sand' || this.env === 'prod')) {
       throw Error('Incorrect env specified, please use either sand or prod')
     }
     if (!this.web3) {
@@ -35,6 +34,9 @@ export class MchplusAuth {
 
   async submitNumber(phoneNumber, isCall) {
     return await this.verifyNumber.submitInput(phoneNumber, isCall)
+  }
+  async confirmNumber(confirmationPin) {
+    return await this.verifyNumber.submitConfirm(confirmationPin)
   }
 
   async sign() {

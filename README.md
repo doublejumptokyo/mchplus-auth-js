@@ -1,4 +1,6 @@
-<div align="center">![pls-auth logo](assets/auth-logo.png)</div>
+<div align="center">
+  <img height="300" src="assets/auth-logo.png">
+</div>
 
 # Authentication API for MCH Plus
 

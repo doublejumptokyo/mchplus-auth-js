@@ -32,7 +32,7 @@ export class VerifyNumber {
   }
 
   async sign(confirmationPin) {
-    const address = await this.getAddress()=
+    const address = await this.getAddress()
     const signature = await this.web3.eth.personal.sign(`Code:${confirmationPin}`, address)
     return signature
   }

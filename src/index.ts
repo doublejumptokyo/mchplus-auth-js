@@ -19,7 +19,6 @@ export class MchplusAuth {
 
   checkInput() {
     console.info('%c[mchplus auth] initialized','background: #222; color: #bada55')
-    console.log(this.env)
     if (!(this.env === 'sand' || this.env === 'prod')) {
       throw Error('Incorrect env specified, please use either sand or prod')
     }
@@ -39,7 +38,7 @@ export class MchplusAuth {
     return await this.verifyNumber.submitConfirm(confirmationPin)
   }
 
-  async sign() {
+  async signAuth() {
     return this.authorize.sign()
   }
 }

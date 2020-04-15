@@ -4,13 +4,13 @@
 
 # Authentication API for MCH Plus
 
-This API connects to the authentication of [MCH Plus](https://www.mch.plus/), the Blockchain Publishing service of [doublejump.tokyo](https://www.doublejump.tokyo/).
+This API connects to the authentication of [MCH Plus](https://www.mch.plus/), the blockchain game publishing service of [doublejump.tokyo](https://www.doublejump.tokyo/).
 
 Please read the documentation below for how to use the API and which endpoints are exposed. 
 
 ## Installation
 
-### NPM
+### Npm
 
 ```bash
 npm install mchplus-auth-js

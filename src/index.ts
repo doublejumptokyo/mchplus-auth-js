@@ -8,11 +8,11 @@ export class MchplusAuth {
   private authorize: Authorize
 
 
-  constructor(clientId = "localhost", web3, env = 'sand', lang = 'en') {
+  constructor(clientId = "localhost", web3, env = 'sand', lang = 'en', cookieName) {
     this.web3 = web3
     this.env = env
     this.verifyNumber = new VerifyNumber(clientId, web3, env, lang)
-    this.authorize = new Authorize(clientId, web3, env, lang)
+    this.authorize = new Authorize(clientId, web3, env, lang, cookieName)
 
     this.checkInput()
   }

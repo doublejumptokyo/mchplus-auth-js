@@ -20,8 +20,8 @@ const env: Env = {
   sand: {
     clientId: "pls-sand",
     lang: "ja",
-    authUri: "https://auth.mch.plus.sand.pls.djty.co",
-    verifyNumberUri: "https://auth.mch.plus.sand.pls.djty.co"
+    authUri: "https://auth.mch.plus",
+    verifyNumberUri: "https://auth.mch.plus"
   },
   prod: {
     clientId: "pls-prod",

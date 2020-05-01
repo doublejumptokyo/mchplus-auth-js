@@ -36,14 +36,14 @@ export class Authorize {
     return accounts.pop()
   }
 
-  async getMessage() {
+  async getMessage(callbackUrl) {
     const address = await this.getAddress()
     const params = new URLSearchParams();
     params.append("response_type", "code");	
     params.append("scope", "openid profile");
     params.append("client_id", this.clientId);
     params.append("state", this.state);	
-    params.append("redirect_uri", "http://localhost:3000/callback");	
+    params.append("redirect_uri", callbackUrl);	
     params.append("address", address);
     params.append("lang", this.lang);
     const url = "/api/authorize?" + params.toString();
@@ -51,8 +51,8 @@ export class Authorize {
     return ret.data
   }
 
-  async sign() {
-    const messageRes = await this.getMessage()
+  async sign(callbackUrl) {
+    const messageRes = await this.getMessage(callbackUrl)
     this.message = messageRes.message
     const address = await this.getAddress();
     let signature;

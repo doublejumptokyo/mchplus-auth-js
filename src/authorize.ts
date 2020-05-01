@@ -70,7 +70,7 @@ export class Authorize {
         client_id: this.clientId,
         signature: signature,
         network: "mainnet", // todo: allow other networks
-        redirect_uri: "http://localhost:3000/callback", // todo: make optional on server
+        redirect_uri: callbackUrl, 
         lang: this.lang,
         state: this.state
       });

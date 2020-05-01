@@ -1,4 +1,3 @@
-// import humps from 'humps'
 import axios from 'axios'
 import env from './env'
 

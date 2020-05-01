@@ -1,9 +1,5 @@
-// import humps from 'humps'
 import axios from 'axios'
 import env from './env'
-import Cookies from 'universal-cookie';
-
-const cookies = new Cookies();
 
 export class Authorize {
   private clientId: string
@@ -25,26 +21,14 @@ export class Authorize {
     return this.env === 'prod' ? env.prod.authUri : env.sand.authUri
   }
 
-  get state(): string {
-    const state = Math.floor(Math.random() * 100000);
-    cookies.set("mchplus_auth_state", state, { maxAge: 600 });
-    return String(state);
-  }
-
   async getAddress() {
     const accounts = await this.web3.eth.getAccounts()
     return accounts.pop()
   }
 
   async getMessage() {
-    const address = await this.getAddress()
     const params = new URLSearchParams();
-    params.append("response_type", "code");
-    params.append("scope", "openid profile");
     params.append("client_id", this.clientId);
-    params.append("state", this.state);
-    params.append("redirect_uri", "http://localhost:3000/callback");
-    params.append("address", address);
     params.append("lang", this.lang);
     const url = "/api/authorize?" + params.toString();
     const ret = await axios.get(`${this.baseUrl}${url}`);
@@ -52,12 +36,9 @@ export class Authorize {
   }
 
   async sign() {
-    // prepare variables
     const messageRes = await this.getMessage()
     this.message = messageRes.message
-    console.log(this.message)
     const address = await this.getAddress();
-
     let signature;
     try {
       signature = await this.web3.eth.personal.sign(this.message, address);
@@ -73,9 +54,7 @@ export class Authorize {
         client_id: this.clientId,
         signature: signature,
         network: "mainnet", // todo: allow other networks
-        redirect_uri: "http://localhost:3000/callback", // todo: make optional on server
         lang: this.lang,
-        state: this.state
       });
       return res
     } catch (err) {

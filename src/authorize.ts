@@ -27,7 +27,7 @@ export class Authorize {
 
   get state(): string {	
     const state = Math.floor(Math.random() * 100000);	
-    cookies.set(this.cookieName, state, { maxAge: 600 });	
+    cookies.set(this.cookieName, state, {  path: '/', maxAge: 600 });	
     return String(state);	
   }
 

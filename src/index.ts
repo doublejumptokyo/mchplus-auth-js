@@ -38,8 +38,13 @@ export class MchplusAuth {
     return await this.verifyNumber.submitConfirm(confirmationPin)
   }
 
-  async signAuth(callback) {
-    return this.authorize.sign(callback)
+  async signAuth(callbackUrl) {
+    try {
+      await this.authorize.sign(callbackUrl)
+    } catch (e) {
+      throw new Error(e)
+    }
+    return 
   }
 }
 

@@ -30,7 +30,7 @@ export class Authorize {
     const params = new URLSearchParams();
     params.append("client_id", this.clientId);
     params.append("lang", this.lang);
-    const url = "/api/?" + params.toString();
+    const url = "/api/client?" + params.toString();
     const ret = await axios.get(`${this.baseUrl}${url}`);
     return ret.data
   }

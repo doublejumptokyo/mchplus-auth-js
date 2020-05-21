@@ -39,14 +39,11 @@ export class MchplusAuth {
   }
 
   async signAuth(callbackUrl) {
-    let res
     try {
-      res = await this.authorize.sign(callbackUrl)
+      return await this.authorize.sign(callbackUrl)
     } catch (e) {
       throw new Error(e)
     }
-    console.log('inside sign auth index: ', res)
-    return res
   }
 }
 

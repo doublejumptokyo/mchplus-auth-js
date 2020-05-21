@@ -75,7 +75,7 @@ export class Authorize {
       console.error(err);
       return;
     }
-    return codeRes
+    return codeRes.data
   }
 }
 

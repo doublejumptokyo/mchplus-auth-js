@@ -70,6 +70,7 @@ export class Authorize {
         lang: this.lang,
         state: this.state
       });
+      console.log('inside axios post: ', res)
       return res
     } catch (err) {
       console.error(err);

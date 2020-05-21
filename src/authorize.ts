@@ -9,16 +9,14 @@ export class Authorize {
   private env: string
   private lang: string
   private message: string
-  private cookieName: string
 
   defaultAccount: string
 
-  constructor(clientId, web3, env, lang = 'en', cookieName) {
+  constructor(clientId, web3, env, lang = 'en') {
     this.clientId = clientId
     this.web3 = web3
     this.env = env
     this.lang = lang
-    this.cookieName = cookieName
   }
 
   get baseUrl(): string {
@@ -27,7 +25,7 @@ export class Authorize {
 
   get state(): string {	
     const state = Math.floor(Math.random() * 100000);	
-    cookies.set(this.cookieName, state, {  path: '/', maxAge: 600 });	
+    // cookies.set(this.cookieName, state, {  path: '/', maxAge: 600 });	
     return String(state);	
   }
 

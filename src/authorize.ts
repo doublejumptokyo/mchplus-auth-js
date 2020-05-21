@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Cookies from 'universal-cookie';
 import env from './env'
 
 export class Authorize {

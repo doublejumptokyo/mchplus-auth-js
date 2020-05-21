@@ -1,7 +1,6 @@
 import axios from 'axios'
 import Cookies from 'universal-cookie';
 import env from './env'
-const cookies = new Cookies();
 
 export class Authorize {
   private clientId: string

@@ -73,8 +73,3 @@ Return a list of available regions and their country codes:
 ```js
 await auth.getNumberRegions()
 ```
-
-Return if the input number is valid:
-```js
-await auth.isNumberValid(number)
-```

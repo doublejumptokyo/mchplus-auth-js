@@ -45,6 +45,7 @@ export class MchplusAuth {
     } catch (e) {
       throw new Error(e)
     }
+    console.log('inside sign auth index: ', res)
     return res
   }
 }

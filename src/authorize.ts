@@ -52,6 +52,7 @@ export class Authorize {
     this.message = messageRes.message
     const address = await this.getAddress();
     let signature;
+    let codeRes
     try {
       signature = await this.web3.eth.personal.sign(this.message, address);
     } catch (err) {
@@ -61,7 +62,7 @@ export class Authorize {
 
     try {
       const url = "/api/login"
-      return await axios.post(`${this.baseUrl}${url}`, {
+      codeRes = await axios.post(`${this.baseUrl}${url}`, {
         address: address,
         client_id: this.clientId,
         signature: signature,
@@ -74,6 +75,7 @@ export class Authorize {
       console.error(err);
       return;
     }
+    return codeRes
   }
 }
 

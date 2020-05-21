@@ -39,11 +39,7 @@ export class MchplusAuth {
   }
 
   async signAuth(callbackUrl) {
-    try {
-      return await this.authorize.sign(callbackUrl)
-    } catch (e) {
-      throw new Error(e)
-    }
+    return await this.authorize.sign(callbackUrl)
   }
 }
 

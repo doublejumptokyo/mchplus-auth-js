@@ -61,7 +61,7 @@ export class Authorize {
 
     try {
       const url = "/api/login"
-      const res  = await axios.post(`${this.baseUrl}${url}`, {
+      return await axios.post(`${this.baseUrl}${url}`, {
         address: address,
         client_id: this.clientId,
         signature: signature,
@@ -70,8 +70,6 @@ export class Authorize {
         lang: this.lang,
         state: this.state
       });
-      console.log('inside axios post: ', res)
-      return res
     } catch (err) {
       console.error(err);
       return;

@@ -83,7 +83,7 @@ await auth.getQRCode()
 
 
 ##  Get Client Info API 
-client_idに紐付いた利用規約やプライバシーポリシー等の値が取得できます。
+You can get the values of the terms of use and privacy policy associated with the client_id.
 
 ```js
 await auth.getClientInfo()

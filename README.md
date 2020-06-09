@@ -73,3 +73,18 @@ Return a list of available regions and their country codes:
 ```js
 await auth.getNumberRegions()
 ```
+
+##  QR code generation API for login 
+Generates a QR code for the user to log into the game. 
+
+```js
+await auth.getQRCode()
+```
+
+
+##  Get Client Info API 
+client_idに紐付いた利用規約やプライバシーポリシー等の値が取得できます。
+
+```js
+await auth.getClientInfo()
+```

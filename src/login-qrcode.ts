@@ -3,29 +3,17 @@ import env from './env'
 
 export class LoginQrcode {
   private clientId: string
-  private web3: any
   private env: string
 
   defaultAccount: string
 
-  constructor(clientId, web3, env) {
+  constructor(clientId, env) {
     this.clientId = clientId
-    this.web3 = web3
     this.env = env
   }
 
   get baseUrl(): string {
     return this.env === 'prod' ? env.prod.loginQrcode : env.sand.loginQrcode    
-  }
-
-  async getRegions() {
-    const url = '/api/master/regions'
-    return await axios.get(`${this.baseUrl}${url}`)
-  }
-
-  async getAddress() {
-    const accounts = await this.web3.eth.getAccounts()
-    return accounts.pop()
   }
 
   get state(): string {	

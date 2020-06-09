@@ -17,8 +17,8 @@ export class MchplusAuth {
     this.env = env
     this.verifyNumber = new VerifyNumber(clientId, web3, env, lang)
     this.authorize = new Authorize(clientId, web3, env, lang)
-    this.clientInfo = new ClientInfo(clientId, web3, env, lang)
-    this.loginQrcode = new LoginQrcode(clientId, web3, env)
+    this.clientInfo = new ClientInfo(clientId, env, lang)
+    this.loginQrcode = new LoginQrcode(clientId, env)
 
     this.checkInput()
   }

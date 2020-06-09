@@ -52,8 +52,8 @@ export class MchplusAuth {
     return await this.clientInfo.getClientInfo()
   }
 
-  async getQRCode(callbackUrl){
-    return await this.loginQrcode.getQRCode(callbackUrl)
+  async getQRCode(callbackUrl, state){
+    return await this.loginQrcode.getQRCode(callbackUrl, state)
   }
 }
 

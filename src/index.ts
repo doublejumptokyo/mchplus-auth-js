@@ -1,11 +1,15 @@
 import VerifyNumber from './verify-number'
 import Authorize from './authorize'
+import ClientInfo from './client-info'
+import LoginQrcode from './login-qrcode'
 
 export class MchplusAuth {
   private web3: any
   private env: string
   private verifyNumber: VerifyNumber
   private authorize: Authorize
+  private clientInfo: ClientInfo
+  private loginQrcode: LoginQrcode
 
 
   constructor(clientId = "localhost", web3, env = 'sand', lang = 'en') {
@@ -13,6 +17,8 @@ export class MchplusAuth {
     this.env = env
     this.verifyNumber = new VerifyNumber(clientId, web3, env, lang)
     this.authorize = new Authorize(clientId, web3, env, lang)
+    this.clientInfo = new ClientInfo(clientId, env, lang)
+    this.loginQrcode = new LoginQrcode(clientId, env)
 
     this.checkInput()
   }
@@ -40,6 +46,14 @@ export class MchplusAuth {
 
   async signAuth(callbackUrl) {
     return await this.authorize.sign(callbackUrl)
+  }
+  
+  async getClientInfo(){
+    return await this.clientInfo.getClientInfo()
+  }
+
+  async getQRCode(callbackUrl, state){
+    return await this.loginQrcode.getQRCode(callbackUrl, state)
   }
 }
 

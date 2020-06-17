@@ -86,5 +86,5 @@ await auth.getQRCode()
 You can get the values of the terms of use and privacy policy associated with the client_id.
 
 ```js
-await auth.getClientInfo()
+await auth.getClientInfo(callbackUrl, state)
 ```

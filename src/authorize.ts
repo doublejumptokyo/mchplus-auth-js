@@ -18,7 +18,7 @@ export class Authorize {
   }
 
   get baseUrl(): string {
-    return this.env === 'prod' ? env.prod.authUri : env.sand.authUri
+    return this.env === 'mainnet' ? env.prod.authUri : env.sand.authUri
   }
 
   get state(): string {	

@@ -3,19 +3,17 @@ import env from './env'
 
 export class ClientInfo {
   private clientId: string
-  private env: string
   private lang: string
 
   defaultAccount: string
 
-  constructor(clientId, env, lang = 'en') {
+  constructor(clientId, lang = 'en') {
     this.clientId = clientId
-    this.env = env
     this.lang = lang
   }
 
   get baseUrl(): string {
-    return this.env === 'prod' ? env.prod.authUri : env.sand.authUri
+    return env.prod.authUri
   }
 
   async getClientInfo() {

@@ -22,13 +22,13 @@ export class Utils {
         // https://www.opera.com/ja/crypto
         return 'opera';
 
-    if (this.web3.currentProvider.isBrave)
-        // https://brave.com/
-        return 'brave';
-
-    if (this.web3.currentProvider.istokenpocket)
+    if (this.web3.currentProvider.isTokenpocket)
         // https://tokenpocket.jp/ja/
         return 'tokenpocket';
+
+    if (this.web3.currentProvider.isTokenPocket)
+        // https://tokenpocket.jp/ja/
+        return 'tokenPocket';
 
     if (this.web3.currentProvider.isTrust)
         // https://trustwallet.com/

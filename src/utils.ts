@@ -6,7 +6,9 @@ export class Utils {
   }
 
   get walletName(): string {
-    if (!this.web3) return 'noweb3';
+    if (!this.web3) return 'noWeb3';
+
+    if (!this.web.currentProvider) return 'noProviderInfo'
 
     if (this.web3.currentProvider.isMetaMask)
         // https://metamask.io/
@@ -24,9 +26,9 @@ export class Utils {
         // https://brave.com/
         return 'brave';
 
-    if (this.web3.currentProvider.isTokenPocket)
+    if (this.web3.currentProvider.istokenpocket)
         // https://tokenpocket.jp/ja/
-        return 'tokenPocket';
+        return 'tokenpocket';
 
     if (this.web3.currentProvider.isTrust)
         // https://trustwallet.com/

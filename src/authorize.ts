@@ -4,21 +4,19 @@ import env from './env'
 export class Authorize {
   private clientId: string
   private web3: any
-  private env: string
   private lang: string
   private message: string
 
   defaultAccount: string
 
-  constructor(clientId, web3, env, lang = 'en') {
+  constructor(clientId, web3, lang = 'en') {
     this.clientId = clientId
     this.web3 = web3
-    this.env = env
     this.lang = lang
   }
 
   get baseUrl(): string {
-    return this.env === 'prod' ? env.prod.authUri : env.sand.authUri
+    return  env.prod.authUri
   }
 
   get state(): string {	
@@ -51,8 +49,29 @@ export class Authorize {
     const messageRes = await this.getMessage(callbackUrl)
     this.message = messageRes.message
     const address = await this.getAddress();
+    let networkName
+    let networkId
     let signature;
     let codeRes
+    
+    try {
+      networkId = await this.web3.eth.net.getId();
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+
+    switch(networkId){
+      case 1: 
+        networkName = "mainnet";
+        break;
+      case 3:
+        networkName = "ropsten";
+        break;
+      case 4:
+        networkName = "rinkeby"
+    }
+
     try {
       signature = await this.web3.eth.personal.sign(this.message, address);
     } catch (err) {
@@ -66,7 +85,7 @@ export class Authorize {
         address: address,
         client_id: this.clientId,
         signature: signature,
-        network: "mainnet", // todo: allow other networks
+        network: networkName, // todo: allow other networks
         redirect_uri: callbackUrl, 
         lang: this.lang,
         state: this.state

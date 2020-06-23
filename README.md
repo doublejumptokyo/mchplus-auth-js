@@ -29,10 +29,9 @@ import MchplusAuth from 'mchplus-auth-js'
 
 const clientId = 'xxx'
 const web3 = // your user's web3 instance
-const env = 'sand' || 'prod' // env can be either sand or prod
 const lang = 'en' // set your user's language here
 
-const auth = new MchplusAuth(clientId, web3, env, lang)
+const auth = new MchplusAuth(clientId, web3, lang)
 
 // call methods here
 ```
@@ -78,7 +77,7 @@ await auth.getNumberRegions()
 Generates a QR code for the user to log into the game. 
 
 ```js
-await auth.getQRCode()
+await auth.getQRCode(callbackUrl, state)
 ```
 
 

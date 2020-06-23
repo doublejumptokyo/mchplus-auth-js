@@ -2,6 +2,7 @@ import VerifyNumber from './verify-number'
 import Authorize from './authorize'
 import ClientInfo from './client-info'
 import LoginQrcode from './login-qrcode'
+import Utils from './utils'
 
 export class MchplusAuth {
   private web3: any
@@ -9,6 +10,7 @@ export class MchplusAuth {
   private authorize: Authorize
   private clientInfo: ClientInfo
   private loginQrcode: LoginQrcode
+  private utils: Utils
 
 
   constructor(clientId = "localhost", web3, lang = 'en') {
@@ -17,6 +19,7 @@ export class MchplusAuth {
     this.authorize = new Authorize(clientId, web3, lang)
     this.clientInfo = new ClientInfo(clientId, lang)
     this.loginQrcode = new LoginQrcode(clientId)
+    this.utils = new Utils(web3)
 
     this.checkInput()
   }
@@ -35,6 +38,7 @@ export class MchplusAuth {
   async submitNumber(phoneNumber, isCall) {
     return await this.verifyNumber.submitInput(phoneNumber, isCall)
   }
+
   async confirmNumber(confirmationPin) {
     return await this.verifyNumber.submitConfirm(confirmationPin)
   }
@@ -49,6 +53,10 @@ export class MchplusAuth {
 
   async getQRCode(callbackUrl, state){
     return await this.loginQrcode.getQRCode(callbackUrl, state)
+  }
+
+  get getWalletName():string {
+    return this.utils.walletName
   }
 }
 

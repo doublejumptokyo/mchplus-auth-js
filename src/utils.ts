@@ -8,7 +8,7 @@ export class Utils {
   get walletName(): string {
     if (!this.web3) return 'noWeb3';
 
-    if (!this.web.currentProvider) return 'noProviderInfo'
+    if (!this.web3.currentProvider) return 'noProviderInfo'
 
     if (this.web3.currentProvider.isMetaMask)
         // https://metamask.io/

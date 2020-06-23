@@ -22,10 +22,6 @@ export class Utils {
         // https://www.opera.com/ja/crypto
         return 'opera';
 
-    if (this.web3.currentProvider.isTokenpocket)
-        // https://tokenpocket.jp/ja/
-        return 'tokenpocket';
-
     if (this.web3.currentProvider.isTokenPocket)
         // https://tokenpocket.jp/ja/
         return 'tokenPocket';

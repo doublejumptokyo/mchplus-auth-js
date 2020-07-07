@@ -1,5 +1,6 @@
 import axios from 'axios'
 import env from './env'
+import Utils from './utils'
 
 export class Authorize {
   private clientId: string
@@ -31,11 +32,14 @@ export class Authorize {
   }
 
   async getMessage(callbackUrl) {
+    const utils = new Utils(this.web3)
+    console.log(utils.walletName)
     const address = await this.getAddress()
     const params = new URLSearchParams();
     params.append("response_type", "code");	
     params.append("scope", "openid profile");
     params.append("client_id", this.clientId);
+    params.append("wallet_name", utils.walletName);
     params.append("state", this.state);	
     params.append("redirect_uri", callbackUrl);	
     params.append("address", address);

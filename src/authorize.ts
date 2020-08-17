@@ -33,7 +33,6 @@ export class Authorize {
 
   async getMessage(callbackUrl) {
     const utils = new Utils(this.web3)
-    console.log(utils.walletName)
     const address = await this.getAddress()
     const params = new URLSearchParams();
     params.append("response_type", "code");	

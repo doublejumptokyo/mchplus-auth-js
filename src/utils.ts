@@ -6,6 +6,8 @@ export class Utils {
   }
 
   get walletName(): string {
+    const potentialWallet = this.findWalletName(this.web3.currentProvider)
+
     if (!this.web3) return 'noWeb3';
 
     if (!this.web3.currentProvider) return 'noProviderInfo'
@@ -42,8 +44,19 @@ export class Utils {
         // https://wallet.coinbase.com/
         return 'coinbase';
 
-    return 'unknown';
+    return `unknown: ${potentialWallet}`;
+  }
+
+  findWalletName(currentProvider) {
+    let potentialWalletName = ''
+    for (let key in currentProvider) {
+       if (key.startsWith('is')) {
+            potentialWalletName = !potentialWalletName.length ? key : potentialWalletName.concat(', ', key)
+       }
+    }
+    return potentialWalletName
   }
 }
+
 
 export default Utils

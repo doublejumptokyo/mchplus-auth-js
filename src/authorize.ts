@@ -38,7 +38,7 @@ export class Authorize {
     params.append("response_type", "code");	
     params.append("scope", "openid profile");
     params.append("client_id", this.clientId);
-    params.append("wallet_name", utils.walletName);
+    params.append("wallet_name", utils.walletName || 'no wallet name');
     params.append("state", this.state);	
     params.append("redirect_uri", callbackUrl);	
     params.append("address", address);

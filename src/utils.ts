@@ -12,37 +12,29 @@ export class Utils {
 
     if (!this.web3.currentProvider) return 'noProviderInfo'
 
-    if (this.web3.currentProvider.isMetaMask)
-        // https://metamask.io/
-        return 'metamask';
+    // https://metamask.io/
+    if (this.web3.currentProvider.isMetaMask) return 'metamask';
 
-    if (this.web3.currentProvider.isTorus)
-        // https://tor.us/
-        return 'torus';
+    // https://tor.us/
+    if (this.web3.currentProvider.isTorus) return 'torus';
 
-    if (this.web3.currentProvider.isOpera)
-        // https://www.opera.com/ja/crypto
-        return 'opera';
+    // https://www.opera.com/ja/crypto
+    if (this.web3.currentProvider.isOpera) return 'opera';
 
-    if (this.web3.currentProvider.isTokenPocket)
-        // https://tokenpocket.jp/ja/
-        return 'tokenPocket';
+    // https://tokenpocket.jp/ja/
+    if (this.web3.currentProvider.isTokenPocket) return 'tokenPocket';
 
-    if (this.web3.currentProvider.isTrust)
-        // https://trustwallet.com/
-        return 'trust';
+    // https://trustwallet.com/
+    if (this.web3.currentProvider.isTrust) return 'trust';
 
-    if (this.web3.currentProvider.isGoWallet)
-        // https://www.go-wallet.app/
-        return 'goWallet';
+    // https://www.go-wallet.app/
+    if (this.web3.currentProvider.isGoWallet) return 'goWallet';
 
-    if (this.web3.currentProvider.isStatus)
-        // https://status.im/
-        return 'status';
+    // https://status.im/
+    if (this.web3.currentProvider.isStatus) return 'status';
 
-    if (this.web3.currentProvider.isToshi)
-        // https://wallet.coinbase.com/
-        return 'coinbase';
+    // https://wallet.coinbase.com/
+    if (this.web3.currentProvider.isToshi) return 'coinbase';
 
     return `unknown: ${potentialWallet}`;
   }

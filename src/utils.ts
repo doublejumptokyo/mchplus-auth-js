@@ -41,6 +41,9 @@ export class Utils {
     
     // https://developer.samsung.com/blockchain/platform/programming-guide/cucumber-webview.html
     if (this.web3.currentProvider.isCucumber) return 'samsung';
+    
+    // https://tokenpocket.jp/ja/
+    if (this.web3.currentProvider.isTokenPocketCrypton) return 'dedicatedTokenPocketApp';
 
     // https://alphawallet.com/
     if (this.web3.currentProvider.isAlpha) return 'alphaWallet';

@@ -35,6 +35,18 @@ export class Utils {
 
     // https://wallet.coinbase.com/
     if (this.web3.currentProvider.isToshi) return 'coinbase';
+    
+    // https://www.meetdapper.com/
+    if (this.web3.currentProvider.isDapper) return 'dapper';
+    
+    // https://developer.samsung.com/blockchain/platform/programming-guide/cucumber-webview.html
+    if (this.web3.currentProvider.isCucumber) return 'samsung';
+
+    // https://alphawallet.com/
+    if (this.web3.currentProvider.isAlpha) return 'alphaWallet';
+    
+    // https://qurage.app/en
+    if (this.web3.currentProvider.isQurage) return 'qurage';
 
     return `unknown: ${potentialWallet}`;
   }

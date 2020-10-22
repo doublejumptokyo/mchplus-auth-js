@@ -78,6 +78,12 @@ export class Utils {
     // https://www.coinomi.com/en/
     if (this.web3.currentProvider.isCoinomi) return 'coinomi';
 
+    // https://mykey.org/
+    if (this.web3.currentProvider.isMYKEY) return 'mykey';
+
+    // https://qpocket.io/
+    if (this.web3.currentProvider.isQPocket) return 'qPocket';
+
     return `unknown: ${potentialWallet}`;
   }
 

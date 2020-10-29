@@ -1,3 +1,4 @@
+declare var navigator:any;
 export class Utils {
   private web3
 
@@ -11,6 +12,9 @@ export class Utils {
     if (!this.web3) return 'noWeb3';
 
     if (!this.web3.currentProvider) return 'noProviderInfo'
+
+    // https://brave.com/
+    if (navigator.brave) return 'brave';
 
     // https://metamask.io/
     if (this.web3.currentProvider.isMetaMask) return 'metamask';
@@ -35,21 +39,51 @@ export class Utils {
 
     // https://wallet.coinbase.com/
     if (this.web3.currentProvider.isToshi) return 'coinbase';
-    
+
     // https://www.meetdapper.com/
     if (this.web3.currentProvider.isDapper) return 'dapper';
-    
+
     // https://developer.samsung.com/blockchain/platform/programming-guide/cucumber-webview.html
     if (this.web3.currentProvider.isCucumber) return 'samsung';
-    
+
     // https://tokenpocket.jp/ja/
     if (this.web3.currentProvider.isTokenPocketCrypton) return 'dedicatedTokenPocketApp';
 
     // https://alphawallet.com/
     if (this.web3.currentProvider.isAlpha) return 'alphaWallet';
-    
+
     // https://qurage.app/en
     if (this.web3.currentProvider.isQurage) return 'qurage';
+
+    // https://goldenwallet.io/
+    if (this.web3.currentProvider.isGolden) return 'golden';
+
+    // https://techcrunch.com/2018/04/13/coinbase-acquires-decentralized-app-browser-wallet-cipher-browser/
+    if (this.web3.currentProvider.isCipher) return 'cipher';
+
+    // https://www.myetherwallet.com/
+    if (this.web3.currentProvider.isMew) return 'mew';
+
+    // https://token.im/
+    if (this.web3.currentProvider.isImToken) return 'imToken';
+
+    // https://www.dapppocket.io/
+    if (this.web3.currentProvider.isDappPocket) return 'dappPocket';
+
+    // https://www.alicedapp.com/
+    if (this.web3.currentProvider.isAlice) return 'alice';
+
+    // https://alphawallet.com/
+    if (this.web3.currentProvider.isAlphaWallet) return 'alphaWallet';
+
+    // https://www.coinomi.com/en/
+    if (this.web3.currentProvider.isCoinomi) return 'coinomi';
+
+    // https://mykey.org/
+    if (this.web3.currentProvider.isMYKEY) return 'mykey';
+
+    // https://qpocket.io/
+    if (this.web3.currentProvider.isQPocket) return 'qPocket';
 
     return `unknown: ${potentialWallet}`;
   }

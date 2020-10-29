@@ -1,3 +1,4 @@
+declare var navigator:any;
 export class Utils {
   private web3
 

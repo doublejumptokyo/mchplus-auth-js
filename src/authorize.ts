@@ -7,6 +7,7 @@ export class Authorize {
   private web3: any
   private lang: string
   private message: string
+  private env: string
 
   defaultAccount: string
 
@@ -17,7 +18,7 @@ export class Authorize {
   }
 
   get baseUrl(): string {
-    return  env.prod.authUri
+    return this.env === 'prod' ? env.prod.authUri : env.sand.authUri
   }
 
   get state(): string {	

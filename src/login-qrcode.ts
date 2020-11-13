@@ -3,6 +3,7 @@ import env from './env'
 
 export class LoginQrcode {
   private clientId: string
+  private env: string
 
   defaultAccount: string
 
@@ -11,7 +12,7 @@ export class LoginQrcode {
   }
 
   get baseUrl(): string {
-    return env.prod.loginQrcode    
+    return this.env === 'prod' ? env.prod.loginQrcode : env.sand.loginQrcode
   }
 
   async getQRCode(callbackUrl, state) {

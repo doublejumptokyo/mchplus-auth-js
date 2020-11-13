@@ -4,6 +4,7 @@ import env from './env'
 export class ClientInfo {
   private clientId: string
   private lang: string
+  private env: string
 
   defaultAccount: string
 
@@ -13,7 +14,7 @@ export class ClientInfo {
   }
 
   get baseUrl(): string {
-    return env.prod.authUri
+    return this.env === 'prod' ? env.prod.authUri : env.sand.authUri
   }
 
   async getClientInfo() {

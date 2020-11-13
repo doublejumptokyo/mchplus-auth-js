@@ -5,6 +5,7 @@ export class VerifyNumber {
   private clientId: string
   private web3: any
   private lang: string
+  private env: string
 
   defaultAccount: string
 
@@ -15,7 +16,8 @@ export class VerifyNumber {
   }
 
   get baseUrl(): string {
-    return env.prod.verifyNumberUri
+    return this.env === 'prod' ? env.prod.verifyNumberUri : env.sand.verifyNumberUri
+    
   }
 
   async getRegions() {

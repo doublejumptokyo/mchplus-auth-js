@@ -74,6 +74,18 @@ export class Authorize {
         break;
       case 4:
         networkName = "rinkeby"
+        break;
+      case 137:
+        networkName = "matic-mainnet"
+        break;
+      case 80001:
+        networkName = "matic-mumbai"
+        break;
+      case 56:
+        networkName = "bsc-mainnet"
+        break;
+      case 97:
+        networkName = "bsc-testnet"
     }
 
     try {

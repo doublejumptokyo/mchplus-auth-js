@@ -50,6 +50,7 @@ export class Authorize {
   }
 
   async sign(callbackUrl) {
+    console.log(this.env)
     const messageRes = await this.getMessage(callbackUrl)
     this.message = messageRes.message
     const address = await this.getAddress();

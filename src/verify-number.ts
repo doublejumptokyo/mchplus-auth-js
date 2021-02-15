@@ -4,8 +4,8 @@ import env from './env'
 export class VerifyNumber {
   private clientId: string
   private web3: any
-  private lang: string
   private env: string
+  private lang: string
 
   defaultAccount: string
 

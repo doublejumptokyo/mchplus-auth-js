@@ -3,8 +3,8 @@ import env from './env'
 
 export class ClientInfo {
   private clientId: string
-  private lang: string
   private env: string
+  private lang: string
 
   defaultAccount: string
 

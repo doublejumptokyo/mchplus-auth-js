@@ -5,9 +5,9 @@ import Utils from './utils'
 export class Authorize {
   private clientId: string
   private web3: any
+  private env: string
   private lang: string
   private message: string
-  private env: string
 
   defaultAccount: string
 

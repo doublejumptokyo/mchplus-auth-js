@@ -11,9 +11,10 @@ export class Authorize {
 
   defaultAccount: string
 
-  constructor(clientId, web3, lang = 'en') {
+  constructor(clientId, web3, env, lang = 'en') {
     this.clientId = clientId
     this.web3 = web3
+    this.env = env
     this.lang = lang
   }
 

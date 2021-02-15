@@ -9,15 +9,15 @@ export class VerifyNumber {
 
   defaultAccount: string
 
-  constructor(clientId, web3, lang) {
+  constructor(clientId, web3, env, lang) {
     this.clientId = clientId
     this.web3 = web3
+    this.env = env
     this.lang = lang
   }
 
   get baseUrl(): string {
     return this.env === 'prod' ? env.prod.verifyNumberUri : env.sand.verifyNumberUri
-    
   }
 
   async getRegions() {

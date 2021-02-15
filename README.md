@@ -29,9 +29,10 @@ import MchplusAuth from 'mchplus-auth-js'
 
 const clientId = 'xxx'
 const web3 = // your user's web3 instance
+const env = 'sand' || 'prod' // env can be either sand or prod
 const lang = 'en' // set your user's language here
 
-const auth = new MchplusAuth(clientId, web3, lang)
+const auth = new MchplusAuth(clientId, web3, env, lang)
 
 // call methods here
 ```

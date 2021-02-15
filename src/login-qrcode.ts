@@ -7,8 +7,9 @@ export class LoginQrcode {
 
   defaultAccount: string
 
-  constructor(clientId) {
+  constructor(clientId, env) {
     this.clientId = clientId
+    this.env = env
   }
 
   get baseUrl(): string {

@@ -8,8 +8,9 @@ export class ClientInfo {
 
   defaultAccount: string
 
-  constructor(clientId, lang = 'en') {
+  constructor(clientId, env, lang = 'en') {
     this.clientId = clientId
+    this.env = env
     this.lang = lang
   }
 

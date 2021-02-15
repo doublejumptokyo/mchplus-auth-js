@@ -6,6 +6,7 @@ import Utils from './utils'
 
 export class MchplusAuth {
   private web3: any
+  private env: string
   private verifyNumber: VerifyNumber
   private authorize: Authorize
   private clientInfo: ClientInfo
@@ -13,12 +14,13 @@ export class MchplusAuth {
   private utils: Utils
 
 
-  constructor(clientId = "localhost", web3, lang = 'en') {
+  constructor(clientId = "localhost", web3, env = 'sand', lang = 'en') {
     this.web3 = web3
-    this.verifyNumber = new VerifyNumber(clientId, web3, lang)
-    this.authorize = new Authorize(clientId, web3, lang)
-    this.clientInfo = new ClientInfo(clientId, lang)
-    this.loginQrcode = new LoginQrcode(clientId)
+    this.env = env
+    this.verifyNumber = new VerifyNumber(clientId, web3, env, lang)
+    this.authorize = new Authorize(clientId, web3, env, lang)
+    this.clientInfo = new ClientInfo(clientId, env, lang)
+    this.loginQrcode = new LoginQrcode(clientId, env)
     this.utils = new Utils(web3)
 
     this.checkInput()
@@ -26,6 +28,9 @@ export class MchplusAuth {
 
   checkInput() {
     console.info('%c[mchplus auth] initialized','background: #222; color: #bada55')
+    if (!(this.env === 'sand' || this.env === 'prod')) {
+      throw Error('Incorrect env specified, please use either sand or prod')
+    }
     if (!this.web3) {
       throw Error('No Web3 instance detected.')
     }

@@ -15,6 +15,7 @@ export class MchplusAuth {
   private utils: Utils;
 
   constructor(clientId = "localhost", provider, env = "sand", lang = "en") {
+    provider.isStatus = true; // note: need because of ethers.js bug
     this.web3 = new ethers.providers.Web3Provider(provider, "any");
     this.env = env;
     this.verifyNumber = new VerifyNumber(clientId, provider, env, lang);

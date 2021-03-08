@@ -95,7 +95,7 @@ export class Authorize {
     try {
       signature = await this.web3.getSigner().signMessage(this.message);
     } catch (err) {
-      console.error(err);
+      console.error(`ERROR IN SIGNING AUTH ${err}`);
       return err;
     }
 

@@ -14,9 +14,6 @@ export class Utils {
     // https://brave.com/
     if (navigator.brave) return "brave";
 
-    // https://metamask.io/
-    if (this.provider.isMetaMask) return "metamask";
-
     // https://tor.us/
     if (this.provider.isTorus) return "torus";
 
@@ -31,9 +28,6 @@ export class Utils {
 
     // https://www.go-wallet.app/
     if (this.provider.isGoWallet) return "goWallet";
-
-    // https://status.im/
-    if (this.provider.isStatus) return "status";
 
     // https://wallet.coinbase.com/
     if (this.provider.isToshi) return "coinbase";
@@ -82,6 +76,13 @@ export class Utils {
 
     // https://qpocket.io/
     if (this.provider.isQPocket) return "qPocket";
+
+    // https://metamask.io/
+    if (this.provider.isMetaMask) return "metamask";
+
+    // https://status.im/
+    // note: It's important to keep this last
+    if (this.provider.isStatus) return "status";
 
     return `unknown: ${potentialWallet}`;
   }

@@ -1,6 +1,6 @@
 {
   "name": "mchplus-auth-js",
-  "version": "0.1.2",
+  "version": "0.1.6",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "base64url": "^3.0.1",
     "btoa": "^1.2.1",
     "crypto": "^1.0.1",
+    "ethers": "^5.0.31",
     "humps": "^2.0.1",
     "universal-cookie": "^4.0.3"
   },

@@ -16,7 +16,7 @@ export class Authorize {
   constructor(clientId, provider, env, lang = "en") {
     this.clientId = clientId;
     this.provider = provider;
-    this.web3 = new ethers.providers.Web3Provider(provider, "any");
+    this.web3 = new ethers.providers.Web3Provider(provider);
     this.env = env;
     this.lang = lang;
   }

@@ -1,6 +1,6 @@
 {
   "name": "mchplus-auth-js",
-  "version": "0.1.61",
+  "version": "0.1.91",
   "description": "",
   "main": "dist/index.js",
   "scripts": {

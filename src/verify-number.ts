@@ -12,7 +12,7 @@ export class VerifyNumber {
 
   constructor(clientId, provider, env, lang) {
     this.clientId = clientId;
-    this.web3 = new ethers.providers.Web3Provider(provider, "any");
+    this.web3 = new ethers.providers.Web3Provider(provider);
     this.env = env;
     this.lang = lang;
   }

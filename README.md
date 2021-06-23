@@ -65,7 +65,7 @@ const auth = new MchplusAuth(clientId, web3, env, lang)
 Users sign up and log into the game with their Ethereum address. The `signAuth` logs in the user (or creates a new account if first login) and signs a Ethereum transaction with the public key.
 
 ```js
-await auth.signAuth();
+await auth.signAuth(callbackUrl);
 ```
 
 ## Verify Phone Number API

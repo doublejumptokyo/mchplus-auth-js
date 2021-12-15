@@ -90,6 +90,14 @@ export class VerifyNumber {
         break;
       case 97:
         networkName = "bsc-testnet";
+        break;
+      case 336:
+          networkName = "shiden-mainnet";
+      case 81:
+        networkName = "shiden-shibuya";
+        break;
+      case 11421:
+        networkName = "jcbi";
     }
 
     try {

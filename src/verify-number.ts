@@ -92,12 +92,20 @@ export class VerifyNumber {
         networkName = "bsc-testnet";
         break;
       case 336:
-          networkName = "shiden-mainnet";
+        networkName = "shiden-mainnet";
+        break;
       case 81:
         networkName = "shiden-shibuya";
         break;
       case 11421:
         networkName = "jcbi";
+        break;
+      case 248:
+        networkName = "oasys-mainnet";
+        break;
+      case 29548:
+        networkName = "mch-verse";
+        break;
     }
 
     try {

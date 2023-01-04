@@ -90,6 +90,13 @@ export class Authorize {
         break;
       case 97:
         networkName = "bsc-testnet";
+        break;
+      case 248:
+        networkName = "oasys-mainnet";
+        break;
+      case 29548:
+        networkName = "mch-verse";
+        break;
     }
 
     try {

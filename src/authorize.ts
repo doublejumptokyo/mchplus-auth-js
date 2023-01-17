@@ -98,10 +98,10 @@ export class Authorize {
         networkName = "mch-verse";
         break;
       case 19011:
-        networkName = "oasys-homeverse";
+        networkName = "home-verse";
         break;
       case 20197:
-        networkName = "oasys-sandverse";
+        networkName = "sand-verse";
         break;
     }
 

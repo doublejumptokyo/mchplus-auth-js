@@ -106,6 +106,12 @@ export class VerifyNumber {
       case 29548:
         networkName = "mch-verse";
         break;
+      case 19011:
+        networkName = "home-verse";
+        break;
+      case 20197:
+        networkName = "sand-verse";
+        break;
     }
 
     try {

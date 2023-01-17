@@ -97,6 +97,12 @@ export class Authorize {
       case 29548:
         networkName = "mch-verse";
         break;
+      case 19011:
+        networkName = "oasys-homeverse";
+        break;
+      case 20197:
+        networkName = "oasys-sandverse";
+        break;
     }
 
     try {

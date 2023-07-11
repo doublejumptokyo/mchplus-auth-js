@@ -32,8 +32,7 @@ export class Authorize {
   }
 
   async getAddress() {
-    const accounts = await this.web3.listAccounts();
-    return accounts.pop();
+    return this.web3.getSigner().getAddress();
   }
 
   async getMessage(callbackUrl) {

@@ -81,6 +81,9 @@ export class Authorize {
       case 137:
         networkName = "matic-mainnet";
         break;
+      case 2400:
+        networkName = "tcg-verse";
+        break;
       case 80001:
         networkName = "matic-mumbai";
         break;

@@ -111,6 +111,9 @@ export class VerifyNumber {
       case 20197:
         networkName = "sand-verse";
         break;
+      case 2400:
+        networkName = "tcg-verse";
+        break;
     }
 
     try {

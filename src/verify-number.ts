@@ -114,6 +114,9 @@ export class VerifyNumber {
       case 2400:
         networkName = "tcg-verse";
         break;
+      case 11155111:
+        networkName = "ethereum-sepolia";
+        break;
     }
 
     try {

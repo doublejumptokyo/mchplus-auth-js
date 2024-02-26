@@ -105,6 +105,12 @@ export class Authorize {
       case 20197:
         networkName = "sand-verse";
         break;
+      case 11155111:
+        networkName = "ethereum-sepolia";
+        break;
+      case 9372:
+        networkName = "oasys-testnet";
+        break;
     }
 
     try {

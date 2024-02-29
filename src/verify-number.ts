@@ -78,6 +78,9 @@ export class VerifyNumber {
       case 4:
         networkName = "rinkeby";
         break;
+      case 11155111:
+        networkName = "sepolia";
+        break;
       case 137:
         networkName = "matic-mainnet";
         break;
@@ -113,9 +116,6 @@ export class VerifyNumber {
         break;
       case 2400:
         networkName = "tcg-verse";
-        break;
-      case 11155111:
-        networkName = "ethereum-sepolia";
         break;
       case 9372:
         networkName = "oasys-testnet";

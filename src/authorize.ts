@@ -78,6 +78,9 @@ export class Authorize {
       case 4:
         networkName = "rinkeby";
         break;
+      case 11155111:
+        networkName = "sepolia";
+        break;
       case 137:
         networkName = "matic-mainnet";
         break;
@@ -104,9 +107,6 @@ export class Authorize {
         break;
       case 20197:
         networkName = "sand-verse";
-        break;
-      case 11155111:
-        networkName = "ethereum-sepolia";
         break;
       case 9372:
         networkName = "oasys-testnet";
